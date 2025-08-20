@@ -3,11 +3,19 @@ package Dev.Java10x.CadastroDeNinjas.Missoes;
 
 import Dev.Java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.List;
+
 
 @Entity
 @Table(name = "tb_missoes")
+
+// Lombok para implementar Contructors, Getters e setters
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class MissoesModel {
 
 
@@ -23,27 +31,5 @@ public class MissoesModel {
     @OneToMany(mappedBy = "missoesModel")
     private List<NinjaModel> ninja;
 
-    public MissoesModel() {
-    }
 
-    public MissoesModel(String titulo, String descricao) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 }
