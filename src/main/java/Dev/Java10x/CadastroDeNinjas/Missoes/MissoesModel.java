@@ -21,11 +21,14 @@ public class MissoesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "ID")
     private long id;
 
-    private String titulo;
+    @Column (name = "nome")
+    private String nome;
 
-    private  String descricao;
+    @Column (name = "dificuldade")
+    private  String dificuldade;
 
     // Uma missão tem varios ninjas
     @OneToMany(mappedBy = "missoesModel")
