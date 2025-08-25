@@ -38,13 +38,14 @@ public class MissoesController {
     //Mandar uma Requisisão para alterar a Missão
     @PutMapping("/alterar")
     public String  AlterarNinjaPorId(){
-        return "alterar ninjas por id";
+        return "alterar missoes por id";
 
     }
 
     //Mandar uma Requisisão para Deletar a Missão
-     @DeleteMapping("/deletarID")public String  DeletarNinjaPorId(){
-        return "Deletar ninjas por id";
+     @DeleteMapping("/deletarID")public String  DeletarNinjaPorId(@PathVariable Long id){
+        missoesService.deletarMissoesPorID(id);
+        return "Missão deletada deletado";
 
     }
 }
