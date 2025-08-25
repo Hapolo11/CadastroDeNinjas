@@ -29,6 +29,12 @@ public class MissoesController {
 
     }
 
+    @GetMapping("/listar/{id}")
+    public MissoesModel listarMissaoPorID(@PathVariable Long id){
+        return missoesService.listarMissoesPorId(id);
+
+    }
+
     //Mandar uma Requisisão para alterar a Missão
     @PutMapping("/alterar")
     public String  AlterarNinjaPorId(){

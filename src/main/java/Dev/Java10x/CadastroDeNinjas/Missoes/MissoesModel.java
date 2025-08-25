@@ -22,7 +22,7 @@ public class MissoesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "ID")
+    @Column (name = "id")
     private long id;
 
     @Column (name = "nome")
