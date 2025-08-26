@@ -1,6 +1,7 @@
 package Dev.Java10x.CadastroDeNinjas.Missoes;
 
 
+import Dev.Java10x.CadastroDeNinjas.Ninjas.NinjaMapper;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.PublicKey;
@@ -12,13 +13,15 @@ public class MissoesController {
 
     private MissoesService missoesService;
 
-    public MissoesController(MissoesService missoesService) {
+
+    public MissoesController(MissoesService missoesService, MissoesMapper missoesMapper) {
         this.missoesService = missoesService;
+
     }
 
     //Mandar uma Requisição para Criar as missões
     @PostMapping("/criar")
-    public MissoesModel CriarMissoes(@RequestBody MissoesModel missoes){
+    public MissoesDTO CriarMissoes(@RequestBody MissoesDTO missoes){
         return missoesService.criarMissoes(missoes);
     }
 
