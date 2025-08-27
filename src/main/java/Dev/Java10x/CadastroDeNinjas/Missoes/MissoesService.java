@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class MissoesService {
 
 
-    private MissoesRepository missoesRepository;
+    private final MissoesRepository missoesRepository;
     private MissoesMapper missoesMapper;
 
     public MissoesService(MissoesRepository missoesRepository, MissoesMapper missoesMapper, NinjaMapper ninjaMapper)
