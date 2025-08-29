@@ -4,7 +4,6 @@
 ![Badge de Linguagem](https://img.shields.io/badge/linguagem-Java-blue?logo=java)
 ![Badge de Framework](https://img.shields.io/badge/framework-Spring%20Boot-green?logo=spring)
 ![Badge de Frontend](https://img.shields.io/badge/frontend-Thymeleaf-orange)
-![Badge de Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-informational)
 
 > Um sistema web completo para cadastrar, gerenciar e visualizar ninjas e suas respectivas missões, totalmente inspirado no universo de Naruto! 🍥
 
@@ -21,8 +20,9 @@ O objetivo é criar um CRUD (Create, Read, Update, Delete) funcional para duas e
 *A primeira impressão é a que fica! Substitua as imagens abaixo por screenshots reais da sua aplicação. A lista de ninjas é uma ótima primeira imagem.*
 
 **Tema Claro e Laranja:**
-![Screenshot do Tema Laranja](https://i.imgur.com/8Q5F3bF.png) **Tema Moderno (Escuro):**
-![Screenshot do Tema Escuro](https://i.imgur.com/tY2zB1p.png) ---
+![Screenshot do Tema Laranja](<img width="1899" height="937" alt="image" src="https://github.com/user-attachments/assets/fbfdd402-5b4b-4049-94bb-107ce8c7bbb2" />
+)
+
 
 ## 🚀 Funcionalidades Principais
 
@@ -61,6 +61,4 @@ Este projeto foi construído com as seguintes tecnologias:
 
 
 
-## 📄 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
