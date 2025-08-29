@@ -15,13 +15,6 @@ Este projeto foi desenvolvido como uma aplicação full-stack utilizando Java co
 
 O objetivo é criar um CRUD (Create, Read, Update, Delete) funcional para duas entidades principais: **Ninjas** e **Missões**. A interface foi cuidadosamente estilizada para proporcionar uma experiência imersiva e agradável, com temas que remetem à estética do anime.
 
-### 📸 Screenshots
-
-*A primeira impressão é a que fica! Substitua as imagens abaixo por screenshots reais da sua aplicação. A lista de ninjas é uma ótima primeira imagem.*
-
-**Tema Claro e Laranja:**
-![Screenshot do Tema Laranja](<img width="1899" height="937" alt="image" src="https://github.com/user-attachments/assets/fbfdd402-5b4b-4049-94bb-107ce8c7bbb2" />
-)
 
 
 ## 🚀 Funcionalidades Principais
