@@ -16,6 +16,14 @@ Este projeto foi desenvolvido como uma aplicação full-stack utilizando Java co
 O objetivo é criar um CRUD (Create, Read, Update, Delete) funcional para duas entidades principais: **Ninjas** e **Missões**. A interface foi cuidadosamente estilizada para proporcionar uma experiência imersiva e agradável, com temas que remetem à estética do anime.
 
 
+### Tabela de missoes
+<img width="1910" height="941" alt="image" src="https://github.com/user-attachments/assets/d35b4c98-31a7-46fa-b362-e8a19a7bb7ee" />
+
+### Tabela de Ninjas
+<img width="1358" height="632" alt="image" src="https://github.com/user-attachments/assets/852056ca-eb07-47f5-9bc0-20a4d49e21df" />
+
+
+
 
 ## 🚀 Funcionalidades Principais
 
@@ -51,6 +59,40 @@ Este projeto foi construído com as seguintes tecnologias:
     -   **HTML5 & CSS3:** Estruturação e estilização das páginas.
 -   **Banco de Dados:**
     -   **H2 Database:** Banco de dados em memória para ambiente de desenvolvimento. - Pretendo realizar a migração
+
+## Iniciacilizando projeto 
+
+### Passos
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/Hapolo11/CadastroDeNinjas.git
+    ```
+
+2.  **Navegue até o diretório do projeto:**
+    ```bash
+    cd CadastroDeNinjas
+    ```
+
+3.  **Execute a aplicação:**
+    ```bash
+    CadastroDeNinjasApplication.java
+    ```
+
+4.  **Acesse a aplicação:**
+    -   Abra seu navegador e acesse `http://localhost:8080/ninjas/ui/listar`
+    -   Você deverá ver a página principal da lista de ninjas.
+
+---
+
+### Rota para ir à lista de missões
+http://localhost:8080/missoes/ui/listar 
+
+### Rota para ir à lista de ninjas
+http://localhost:8080/ninjas/ui/listar
+
+
+ao iniciar o projeto podemos encontrar toda a documentação em: http://localhost:8080/swagger-ui/index.html#/
 
 
 
