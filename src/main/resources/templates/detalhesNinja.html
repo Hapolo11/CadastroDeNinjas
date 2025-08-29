@@ -1,0 +1,186 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>detalhesNinja</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    /* --- Importação da fonte (coloque no <head> do seu HTML) --- */
+    /* <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> */
+
+    /* --- ESTILOS GERAIS --- */
+    body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: #1a1a1a;
+        background-image: url('https://www.transparenttextures.com/patterns/old-scroll.png');
+        color: #333;
+        margin: 0;
+        padding: 40px 20px;
+    }
+
+    /* --- CARD PRINCIPAL --- */
+    .ninja-card {
+        max-width: 700px;
+        margin: 0 auto;
+        background-color: #fdf8ec; /* Fundo de pergaminho claro */
+        border: 10px solid #4f3b2e; /* Borda de madeira */
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        padding: 30px 40px;
+        text-align: center;
+    }
+
+    /* Título da Ficha */
+    .ninja-card h1 {
+        font-family: 'Bangers', cursive;
+        font-size: 48px;
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+        border-bottom: 4px dotted #c89b6d;
+        padding-bottom: 15px;
+    }
+
+    /* Imagem de Perfil */
+    .ninja-profile-pic {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 8px solid #ff9900; /* Borda laranja icônica */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    /* Nome do Ninja */
+    .ninja-card h2 {
+        font-family: 'Bangers', cursive;
+        font-size: 42px;
+        color: #f76f00; /* Laranja vibrante */
+        text-shadow: 2px 2px #fff;
+        margin: 10px 0;
+    }
+
+    /* Bloco de Informações (Email, Idade, Rank) */
+    .ninja-info {
+        text-align: left;
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fffaf0;
+        border: 1px solid #e0d5c1;
+        border-radius: 8px;
+    }
+
+    .ninja-info p {
+        font-size: 18px;
+        margin: 10px 0;
+        color: #555;
+    }
+
+    .ninja-info p strong {
+        color: #2c2c2c;
+        margin-right: 8px;
+    }
+
+    /* Título da seção de missões */
+    .ninja-card h3 {
+        font-family: 'Bangers', cursive;
+        font-size: 28px;
+        color: #4f3b2e;
+        margin-top: 40px;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+    }
+
+    /* Tabela de Missões */
+    .missions-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .missions-table th,
+    .missions-table td {
+        padding: 12px;
+        border-bottom: 2px solid #e0d5c1;
+        text-align: left;
+    }
+
+    .missions-table thead {
+        background-color: #ffead1; /* Laranja pastel */
+        font-weight: bold;
+        color: #6d4c41;
+    }
+
+    .missions-table tbody tr:hover {
+        background-color: #fff3e0;
+    }
+
+    /* Botão de Voltar */
+    .back-link {
+        display: block;
+        width: fit-content;
+        margin: 40px auto 20px;
+        padding: 12px 25px;
+        background-color: #ff9900;
+        color: white;
+        font-family: 'Bangers', cursive;
+        font-size: 22px;
+        letter-spacing: 2px;
+        text-decoration: none;
+        border-radius: 8px;
+        border-bottom: 4px solid #c77700;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .back-link:hover {
+        background-color: #ffac33;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    .back-link:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+</style>
+
+
+</head>
+<body>
+<div class="ninja-card">
+    <h1>Ficha do Ninja</h1>
+    <img th:src="${ninjas.imgUrl}" th:alt="${ninjas.nome}" class="ninja-profile-pic" />
+    <h2 th:text="${ninjas.nome}">Nome do Ninja</h2>
+
+    <div class="ninja-info">
+        <p><strong>Email:</strong> <span th:text="${ninjas.email}"></span></p>
+        <p><strong>Idade:</strong> <span th:text="${ninjas.idade}"></span></p>
+        <p><strong>Rank:</strong> <span th:text="${ninjas.rank}"></span></p>
+    </div>
+
+    <h3>Missões Concluídas</h3>
+    <table class="missions-table">
+        <thead>
+        <tr>
+            <th>Nome da Missão</th>
+            <th>Dificuldade</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="missao : ${ninjas.missoesModel}">
+            <td th:text="${missao.nome}">Proteger o Construtor da Ponte</td>
+            <td th:text="${missao.dificuldade}">C</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<a href="/ninjas/ui/listar" class="back-link">Voltar para a Lista</a>
+</body>
+</html>

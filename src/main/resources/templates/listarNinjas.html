@@ -1,0 +1,254 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabela de ninjas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <style>
+        /* --- Importação da fonte (coloque no <head> do seu HTML) --- */
+
+
+        /* --- ESTILOS GERAIS --- */
+        body {
+            font-family: 'Open Sans', sans-serif; /* Uma fonte mais moderna e limpa */
+            background-color: #f7f9fc; /* Fundo muito claro, quase branco */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* --- CONTAINER PRINCIPAL --- */
+        .container-ninja {
+            max-width: 1200px;
+            margin: 40px auto;
+            background-color: #ffffff; /* Fundo branco puro para o container */
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            padding: 30px;
+            overflow-x: auto; /* Para tabelas muito largas em telas pequenas */
+        }
+
+        /* --- TÍTULO COM SÍMBOLO DE KONOHA --- */
+        h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 52px; /* Um pouco maior */
+            color: #f76f00; /* Laranja vibrante */
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px rgba(0,0,0,0.1); /* Sombra mais suave */
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        /* Adicionando o símbolo de Konoha */
+        h1::before {
+            content: '';
+            display: inline-block;
+            width: 45px; /* Tamanho um pouco maior */
+            height: 45px;
+            margin-right: 18px;
+            vertical-align: middle;
+            background-image: url('https://e7.pngegg.com/pngimages/803/101/png-clipart-minato-namikaze-naruto-uzumaki-kakashi-hatake-clans-de-konoha-village-text-logo-thumbnail.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2)); /* Sombra para o ícone */
+        }
+
+
+        /* --- ESTILIZAÇÃO DA TABELA --- */
+        table {
+            width: 100%;
+            border-collapse: separate; /* Para border-radius nas células */
+            border-spacing: 0; /* Remove espaço entre células */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Sombra mais leve */
+            border-radius: 8px; /* Cantos arredondados para a tabela */
+            overflow: hidden; /* Garante que os cantos arredondados funcionem */
+        }
+
+        /* Cabeçalho da Tabela */
+        thead tr {
+            background-color: #ff8c00; /* Laranja mais forte para o cabeçalho */
+            color: #ffffff;
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1.5px;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        th {
+            padding: 18px 20px;
+            text-align: left;
+            border-bottom: 2px solid #e67e00; /* Borda inferior mais escura */
+        }
+        th:first-child { border-top-left-radius: 8px; }
+        th:last-child { border-top-right-radius: 8px; }
+
+
+        /* Corpo da Tabela */
+        tbody tr {
+            border-bottom: 1px solid #f0f0f0; /* Linhas divisórias suaves */
+            transition: background-color 0.3s ease;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #fff8ee; /* Um laranja muito claro, quase bege */
+        }
+
+        tbody tr:hover {
+            background-color: #ffe0b2; /* Laranja pastel ao passar o mouse */
+            color: #444;
+        }
+
+        td {
+            padding: 15px 20px;
+            vertical-align: middle;
+        }
+
+        /* Imagem do Ninja */
+        td img {
+            border-radius: 50%;
+            border: 3px solid #ff8c00; /* Borda laranja */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            width: 60px !important;  /* Tamanho um pouco maior */
+            height: 60px !important;
+            object-fit: cover;
+        }
+
+        /* Coluna de Missões */
+        .missao-info {
+            font-weight: bold;
+            color: #4a4a4a;
+        }
+        .sem-missao {
+            color: #999;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        /* --- BOTÕES DE AÇÃO --- */
+        td a {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 3px;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 6px; /* Cantos mais suaves */
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        a.ver-detalhes, a[href*="/listar/"] {
+            background-color: #4caf50; /* Verde mais claro e amigável */
+        }
+        a.ver-detalhes:hover, a[href*="/listar/"]:hover {
+            background-color: #66bb6a;
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+        }
+
+        a.alterar, a[href*="/#/"] {
+            background-color: #2196f3; /* Azul vibrante */
+        }
+        a.alterar:hover, a[href*="/#/"]:hover {
+            background-color: #42a5f5;
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+        }
+
+        a.deletar, a[href*="/deletar/"] {
+            background-color: #f44336; /* Vermelho mais suave */
+        }
+        a.deletar:hover, a[href*="/deletar/"]:hover {
+            background-color: #ef5350;
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+        }
+
+        /* --- Estilo Simplificado para o Botão "Adicionar" --- */
+        .btn-adicionar {
+            display: inline-block;
+            background-color: #f76f00;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+
+
+        }
+
+        .btn-adicionar:hover {
+            background-color: #ff8c00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+    </style>
+
+</head>
+<body>
+<h1>Lista de ninjas</h1>
+<a class="btn-adicionar" th:href="@{/ninjas/ui/adicionar}">Adicionar Novo Ninja</a>
+<a class="btn-adicionar" th:href="@{/missoes/ui/listar}">Ir para missoes</a>
+<table>
+
+    <thead>
+    <tr>
+
+        <th>ID</th>
+        <th>Imagem</th>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Email</th>
+        <th>Rank</th>
+        <th>Missoes</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    <tr th:each ="ninja: ${ninjas}">
+
+        <td th:text="${ninja.id}"></td>
+        <td><img th:src="${ninja.imgUrl}"></td>
+        <td th:text="${ninja.nome}"></td>
+        <td th:text="${ninja.idade}"></td>
+        <td th:text="${ninja.email}"></td>
+        <td th:text="${ninja.rank}"></td>
+        <td>
+            <span th:if="${ninja.missoesModel}"><span th:text="${ninja.missoesModel.nome}"></span>, Dificuldade: <span th:text="${ninja.missoesModel.dificuldade}"></span></span>
+            <span th:if="${ninja.missoesModel == null}">Sem Missões cadastradas para o ninja</span>
+        </td>
+
+        <td>
+            <a class="ver-detalhes" th:href="@{/ninjas/ui/listar/{id}(id=${ninja.id})}">Ver Detalhes</a>
+            <a class="alterar" th:href="@{/ninjas/ui/#/{id}(id=${ninja.id})}">Alterar</a>
+            <a class="deletar" th:href="@{/ninjas/ui/deletarId/{id}(id=${ninja.id})}">Deletar</a>
+        </td>
+
+
+
+
+    </tr>
+
+
+    </tbody>
+
+</table>
+
+
+</body>
+</html>

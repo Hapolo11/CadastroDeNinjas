@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Missão</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ESTILOS GERAIS --- */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f7f9fc; /* Fundo muito claro, quase branco */
+            margin: 0;
+            padding: 40px 20px;
+            color: #4a4a4a;
+        }
+
+        /* --- TÍTULO PRINCIPAL DA PÁGINA --- */
+        h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 52px;
+            color: #f76f00; /* Laranja vibrante */
+            text-align: center;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        /* --- CARD DE INFORMAÇÕES DA MISSÃO --- */
+        .mission-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* NOME DA MISSÃO (TÍTULO DENTRO DO CARD) */
+        .mission-card h2 {
+            font-family: 'Bangers', cursive;
+            font-size: 3.5em; /* 48px */
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            border-bottom: 3px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+
+        /* DETALHES (ID, DIFICULDADE) */
+        .mission-details {
+            text-align: left;
+            font-size: 1.2em; /* 18px */
+        }
+
+        .mission-details p {
+            margin: 15px 0;
+            color: #555;
+            padding-left: 15px;
+            border-left: 4px solid #ff8c00; /* Destaque lateral laranja */
+        }
+
+        .mission-details p strong {
+            color: #2c2c2c;
+            min-width: 120px;
+            display: inline-block;
+        }
+
+        /* --- LINK DE VOLTAR --- */
+        .back-link {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 0;
+            text-decoration: none;
+            color: #f76f00;
+            font-weight: 700;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            border: 2px solid #f76f00;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #f76f00;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Ficha da Missão</h1>
+
+<div class="mission-card">
+    <h2 th:text="${missoes.nome}">Resgatar o Kazekage</h2>
+
+    <div class="mission-details">
+        <p><strong>ID da Missão:</strong> <span th:text="${missoes.id}">#01-SGA</span></p>
+        <p><strong>Dificuldade:</strong> <span th:text="${missoes.dificuldade}">Rank S</span></p>
+    </div>
+</div>
+
+<a class="back-link" th:href="@{/missoes/ui/listar}">Voltar para a lista de Missões</a>
+
+</body>
+</html>
