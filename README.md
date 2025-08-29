@@ -32,13 +32,13 @@ O objetivo é criar um CRUD (Create, Read, Update, Delete) funcional para duas e
     -   [✔️] Visualizar os detalhes de um ninja específico.
     -   [✔️] Adicionar um novo ninja ao sistema.
     -   [🚧] Alterar informações de um ninja existente.
-    -   [🚧] Deletar um ninja.
+    -   [✔️] Deletar um ninja.
 -   **Gerenciamento de Missões:**
     -   [✔️] Listar todas as missões disponíveis.
     -   [✔️] Visualizar detalhes de uma missão.
     -   [✔️] Adicionar uma nova missão.
     -   [🚧] Alterar dados de uma missão.
-    -   [🚧] Deletar uma missão.
+    -   [✔️] Deletar uma missão.
 -   **Interface Temática:** Duas opções de temas CSS para uma experiência personalizada.
 
 *(Use [✔️] para funcionalidades concluídas e [🚧] para as que estão em progresso)*
