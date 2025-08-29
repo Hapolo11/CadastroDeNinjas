@@ -2,6 +2,9 @@ package Dev.Java10x.CadastroDeNinjas.Missoes;
 
 
 import Dev.Java10x.CadastroDeNinjas.Ninjas.NinjaDTO;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +25,11 @@ public class MissoesController {
 
     //Mandar uma Requisição para Criar as missões
     @PostMapping("/criar")
+    @Operation(summary = "Criar Missao", description = "Essa rota cria uma missao")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Misssao criada com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Não foi possivel criar o ninja")
+    })
     public ResponseEntity<String> CriarMissoes(@RequestBody MissoesDTO missoes){
         MissoesDTO novaMissao  = missoesService.criarMissoes(missoes);
         return ResponseEntity.status(HttpStatus.CREATED)
@@ -30,6 +38,7 @@ public class MissoesController {
 
     //Mandar uma Requisição para mostrar todas as missões
     @GetMapping("/listar")
+    @Operation(summary = "Listar Missoes", description = "Essa rota lista todas as missoes")
     public
     ResponseEntity<List> listarMissao(){
 
@@ -39,6 +48,11 @@ public class MissoesController {
     }
 
     @GetMapping("/listar/{id}")
+    @Operation(summary = "Listar missao por id", description = "Essa rota lista uma missão por id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Missao encontrada com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Não foi possivel encontrar a missao")
+    })
     public ResponseEntity<?> listarMissaoPorID(@PathVariable Long id){
         MissoesDTO missoesDTO  = missoesService.listarMissoesPorId(id);
         if (missoesDTO != null ){
@@ -55,6 +69,11 @@ public class MissoesController {
 
     //Mandar uma Requisisão para alterar a Missão
     @PutMapping("/alterar/{id}")
+    @Operation(summary = "Aleterar missao por id", description = "Essa rota altera uma missão por id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Missao alterada com sucesso"),
+            @ApiResponse(responseCode = "404", description = "Não foi possivel encontrar a missao")}
+    )
     public ResponseEntity<String> AlterarMissaoPorId(@PathVariable Long id, @RequestBody MissoesDTO missaoAtualizada){
         MissoesDTO missoesDTO  = missoesService.listarMissoesPorId(id);
         if (missoesDTO != null){
@@ -67,7 +86,12 @@ public class MissoesController {
     }
 
     //Mandar uma Requisisão para Deletar a Missão
-     @DeleteMapping("/deletarID/{id}")public ResponseEntity<?> DeletarMissaoPorId(@PathVariable Long id){
+     @DeleteMapping("/deletarID/{id}")
+     @Operation(summary = "Deletar missao", description = "Essa rota deleta uma missão por id")
+     @ApiResponses(value = {
+             @ApiResponse(responseCode = "200", description = "Missao deletada com sucesso"),
+             @ApiResponse(responseCode = "404", description = "Não foi possivel encontrar a missao")})
+     public ResponseEntity<?> DeletarMissaoPorId(@PathVariable Long id){
 
         if (missoesService.listarMissoesPorId(id) != null){
             missoesService.deletarMissoesPorID(id);
