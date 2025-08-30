@@ -39,7 +39,6 @@ O objetivo é criar um CRUD (Create, Read, Update, Delete) funcional para duas e
     -   [✔️] Adicionar uma nova missão.
     -   [🚧] Alterar dados de uma missão.
     -   [✔️] Deletar uma missão.
--   **Interface Temática:** Duas opções de temas CSS para uma experiência personalizada.
 
 *(Use [✔️] para funcionalidades concluídas e [🚧] para as que estão em progresso)*
 
